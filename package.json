@@ -1,24 +1,36 @@
 {
   "name": "animated-styled-components",
-  "version": "0.2.6",
+  "version": "1.0.0",
   "description": "React Animated Styled Components",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "files": ["css", "es", "lib", "umd"],
+  "main": "dist/animated-styled-components.cjs.js",
+  "module": "dist/animated-styled-components.esm.js",
+  "browser": "dist/animated-styled-components.umd.js",
   "scripts": {
-    "build": "nwb build-react-component",
-    "clean": "nwb clean-module && nwb clean-demo",
-    "start": "nwb serve-react-demo",
-    "test": "nwb test-react",
-    "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "babel": "babel src --out-dir lib",
+    "rollup": "rollup -c",
+    "build": "yarn babel && yarn rollup"
   },
   "dependencies": {
-    "react": "^15.6.1",
-    "styled-components": "^2.1.2"
+    "@babel/runtime": "^7.0.0-beta.41"
   },
   "devDependencies": {
-    "nwb": "0.18.x"
+    "@babel/cli": "^7.0.0-beta.41",
+    "@babel/core": "^7.0.0-beta.41",
+    "@babel/plugin-external-helpers": "^7.0.0-beta.41",
+    "@babel/plugin-syntax-class-properties": "^7.0.0-beta.41",
+    "@babel/plugin-transform-regenerator": "^7.0.0-beta.41",
+    "@babel/preset-env": "^7.0.0-beta.41",
+    "@babel/preset-react": "^7.0.0-beta.41",
+    "@babel/preset-stage-0": "^7.0.0-beta.41",
+    "rollup": "^0.56.5",
+    "rollup-plugin-commonjs": "^9.1.0",
+    "rollup-plugin-filesize": "^1.5.0",
+    "rollup-plugin-node-resolve": "^3.2.0",
+    "rollup-plugin-uglify": "^3.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.2.0",
+    "styled-components": "^3.2.2"
   },
   "author": "Alex Casillas <alexvcasillas@gmail.com>",
   "homepage": "https://alexvcasillas.com",
